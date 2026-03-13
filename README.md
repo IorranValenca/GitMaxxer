@@ -1,4 +1,4 @@
-![BABELL](BABELL.png)
+<img src="BABELL.png" width="300">
 
 # GitMaxxer 
 
