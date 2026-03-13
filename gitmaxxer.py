@@ -148,10 +148,10 @@ def main():
 
     if args.push:
         if args.dry_run:
-            print(f"[DRY] Would push {args.branch} to {args.remote}")
+            print(f"[DRY] Would push {args.branch} to {args.remote} with --force")
         else:
             print(f"Pushing {args.branch} to {args.remote}...")
-            run(["git", "push", args.remote, args.branch], cwd=args.repo)
+            run(["git", "push", "--force", args.remote, args.branch], cwd=args.repo)
 
 
 if __name__ == "__main__":
