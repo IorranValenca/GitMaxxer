@@ -151,4 +151,4 @@ Found a bug or have a feature request? Open an issue!
 
 ---
 
-**Use responsibly.** 🌿
+**Use responsibly.** :-)
