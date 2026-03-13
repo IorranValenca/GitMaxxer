@@ -1,4 +1,4 @@
-# GitMaxxer 🌱
+# GitMaxxer 
 
 Automatically generate a large number of Git commits with controlled timestamps to populate your GitHub contribution graph.
 
