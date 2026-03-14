@@ -14,7 +14,8 @@ This tool is for **educational and testing purposes only**. Using it to artifici
 ✅ Control commit distribution across time (by hour/day)  
 ✅ Set custom commit timestamps (bypass `GIT_AUTHOR_DATE`)  
 ✅ Dry-run mode to preview without changes  
-✅ Configurable commit messages  
+✅ Configurable commit messages with realistic alternatives  
+✅ 160+ realistic commit message templates (feat, fix, refactor, docs, perf, etc.)  
 ✅ Optional push to remote after generation  
 ✅ Cross-platform (Windows, macOS, Linux)  
 
@@ -56,9 +57,10 @@ python gitmaxxer.py --repo "C:\path\to\your\repo" --commits 100
 | `--start` | 0 | Start hour (0-23) |
 | `--end` | 23 | End hour (0-23) |
 | `--name` | _(optional)_ | Git user name for this repo |
-| `--email` | _(optional)_ | Git user email for this repo |
+| `--email` | _(required)_ | Git user email for this repo |
 | `--file` | commit_log.txt | File to modify for each commit |
-| `--message` | chore: automated commit | Commit message prefix |
+| `--message` | chore: automated commit | Commit message prefix (ignored if `--realistic` is used) |
+| `--realistic` | false | Use realistic commit messages (feat, fix, refactor, docs, perf, test, etc.) |
 | `--dry-run` | — | Preview actions without making changes |
 | `--push` | — | Push to remote after generation |
 | `--remote` | origin | Remote name to push to |
@@ -91,6 +93,16 @@ python gitmaxxer.py --repo "C:\my-repo" --commits 150 --name "John Doe" --email 
 python gitmaxxer.py --repo "C:\my-repo" --commits 50 --message "feat: implement feature"
 ```
 
+**Generate commits with realistic messages:**
+```bash
+python gitmaxxer.py --repo "C:\my-repo" --commits 100 --email "your-email@example.com" --realistic
+```
+
+**Realistic messages with specific date and time range:**
+```bash
+python gitmaxxer.py --repo "C:\my-repo" --commits 200 --date 2026-03-15 --start 9 --end 17 --email "your-email@example.com" --realistic
+```
+
 ## How It Works
 
 1. **Initialize or reuse a repo** at the specified path
@@ -104,7 +116,23 @@ python gitmaxxer.py --repo "C:\my-repo" --commits 50 --message "feat: implement 
 Each commit contains:
 - A unique UUID for tracking
 - The exact timestamp it was created at
-- A configurable message prefix
+- A configurable message (custom prefix or realistic message from 160+ templates)
+
+### Realistic Commit Messages
+
+When using the `--realistic` flag, commits will use messages from a comprehensive library including:
+- **feat:** Feature implementations (authentication, integrations, etc.)
+- **fix:** Bug fixes (timeout handling, validation errors, etc.)
+- **refactor:** Code improvements (simplifying logic, optimization, etc.)
+- **docs:** Documentation updates
+- **perf:** Performance optimizations
+- **test:** Test additions and improvements
+- **style:** Code formatting and styling
+- **build:** Build system and dependency updates
+- **infra:** Infrastructure and deployment changes
+- **data:** Data migrations and transformations
+
+Each commit gets a **randomly selected, unique message**, so even 400+ commits will have varied, realistic-looking messages.
 
 ## Stopping the Script
 
